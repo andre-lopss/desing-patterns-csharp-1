@@ -8,6 +8,13 @@ namespace DesignPatterns
 {
     class IHIT : TemplateDeImpostoCondicional
     {
+        public IHIT(Imposto outroImposto) : base(outroImposto)
+        {
+        }
+
+        public IHIT() : base()
+        {
+        }
         public override bool DeveUsarMaximaTaxacao(Orcamento orcamento)
         {
             IList<string> noOrcamento = new List<string>();

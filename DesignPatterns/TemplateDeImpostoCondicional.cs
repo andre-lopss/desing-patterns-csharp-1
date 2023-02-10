@@ -6,15 +6,23 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns
 {
-    public abstract class TemplateDeImpostoCondicional : IImposto
+    public abstract class TemplateDeImpostoCondicional : Imposto
     {
-        public double Calcula(Orcamento orcamento)
+        public TemplateDeImpostoCondicional (Imposto outroImposto): base(outroImposto)
+        {
+        }
+
+        public TemplateDeImpostoCondicional() : base()
+        {
+        }
+
+        public override double Calcula(Orcamento orcamento)
         {
             if (DeveUsarMaximaTaxacao(orcamento))
             {
-                return MaximaTaxacao(orcamento);
+                return MaximaTaxacao(orcamento) + CalculoOutroImposto(orcamento);
             }
-            return MinimaTaxacao(orcamento);
+            return MinimaTaxacao(orcamento) + CalculoOutroImposto(orcamento);
         }
 
         public abstract bool DeveUsarMaximaTaxacao(Orcamento orcamento);

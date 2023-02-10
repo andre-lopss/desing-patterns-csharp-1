@@ -6,21 +6,19 @@ using System.Threading.Tasks;
 
 namespace DesignPatterns
 {
-    public class ISS : Imposto
+    public class ImpostoMuitoAlto : Imposto
     {
-        public ISS(Imposto outroImposto) : base(outroImposto)
+        public ImpostoMuitoAlto(Imposto outroImposto) : base(outroImposto)
         {
         }
 
-        public ISS() : base()
+        public ImpostoMuitoAlto() : base()
         {
         }
 
         public override double Calcula(Orcamento orcamento)
         {
-            return orcamento.Valor * 0.06 + CalculoOutroImposto(orcamento);
+            return orcamento.Valor * 0.2 + CalculoOutroImposto(orcamento);
         }
-
-        
     }
 }
