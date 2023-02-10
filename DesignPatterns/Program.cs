@@ -12,9 +12,9 @@ namespace DesignPatterns
         {
             CalculadorDeDescontos calculador = new CalculadorDeDescontos();
 
-            Orcamento orcamento = new Orcamento(500);
-            orcamento.AdicionaItem(new Item("Caneta", 500.0));
-            orcamento.AdicionaItem(new Item("Lapis", 500.0));
+            Orcamento orcamento = new Orcamento(100);
+            orcamento.AdicionaItem(new Item("LAPI", 100.0));
+            orcamento.AdicionaItem(new Item("CANETA", 100.0));
 
             double desconto = calculador.Calcula(orcamento);
             Console.WriteLine(desconto);
