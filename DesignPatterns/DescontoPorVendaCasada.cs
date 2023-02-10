@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DesignPatterns
 {
     public class DescontoPorVendaCasada : IDesconto
-    {
+    { 
         public IDesconto Proximo { get ; set; }
 
         public double Desconta(Orcamento orcamento)
