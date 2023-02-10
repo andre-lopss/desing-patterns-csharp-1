@@ -10,16 +10,14 @@ namespace DesignPatterns
     {
         static void Main(string[] args)
         {
-            IImposto iss = new ISS();
-            IImposto icms = new ICMS();
-            IImposto iccc = new ICCC();
+            CalculadorDeDescontos calculador = new CalculadorDeDescontos();
 
-            Orcamento orcamento = new Orcamento(3000.0);
+            Orcamento orcamento = new Orcamento(500);
+            orcamento.AdicionaItem(new Item("Caneta", 500.0));
+            orcamento.AdicionaItem(new Item("Lapis", 500.0));
 
-            CalculadorDeImpostos calculador = new CalculadorDeImpostos();
-            //calculador.RealizarCalculo(orcamento, iss);
-            //calculador.RealizarCalculo(orcamento, icms);
-            calculador.RealizarCalculo(orcamento, iccc);
+            double desconto = calculador.Calcula(orcamento);
+            Console.WriteLine(desconto);
 
             Console.ReadKey();
         }
