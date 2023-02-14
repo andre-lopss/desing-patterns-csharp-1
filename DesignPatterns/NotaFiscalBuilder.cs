@@ -14,7 +14,8 @@ namespace DesignPatterns
         private IList<ItemDaNota> todosItens = new List<ItemDaNota>();
 
         private IList<IAcaoAposGerarNota> todasAcoesASeremExecutadas = new List<IAcaoAposGerarNota>();
-        
+
+
         public NotaFiscal Constroi()
         {
             NotaFiscal nf = new NotaFiscal(RazaoSocial, Cnpj, Data, valorTotal, impostos, todosItens, Observacoes);
