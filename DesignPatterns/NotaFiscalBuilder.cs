@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DesignPatterns
 {
@@ -15,10 +12,23 @@ namespace DesignPatterns
         private double valorTotal;
         private double impostos;
         private IList<ItemDaNota> todosItens = new List<ItemDaNota>();
+
+        private IList<IAcaoAposGerarNota> todasAcoesASeremExecutadas = new List<IAcaoAposGerarNota>();
         
         public NotaFiscal Constroi()
         {
-            return new NotaFiscal(RazaoSocial, Cnpj, Data, valorTotal, impostos, todosItens, Observacoes);
+            NotaFiscal nf = new NotaFiscal(RazaoSocial, Cnpj, Data, valorTotal, impostos, todosItens, Observacoes);
+            foreach(IAcaoAposGerarNota acao in todasAcoesASeremExecutadas)
+            {
+                acao.Executa(nf);
+            }
+            return nf;
+        }
+
+        public NotaFiscalBuilder AdicionaAcao(IAcaoAposGerarNota novaAcao)
+        {
+            todasAcoesASeremExecutadas.Add(novaAcao);
+            return this;
         }
 
         public NotaFiscalBuilder ParaEmpresa(string razaoSocial)

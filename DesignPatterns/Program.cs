@@ -17,6 +17,10 @@ namespace DesignPatterns
                 .Com(new ItemDaNota("item 2", 200.0))
                 .NaDataAtual()
                 .ComObservacoes("Testando uma observação na NF'e")
+                .AdicionaAcao(new EnviadorDeEmail())
+                .AdicionaAcao(new NotaFiscalDao())
+                .AdicionaAcao(new EnviadorDeEmail())
+                .AdicionaAcao(new Multiplicador(10))
                 .Constroi();
 
             Console.WriteLine(nf.ValorBruto);
